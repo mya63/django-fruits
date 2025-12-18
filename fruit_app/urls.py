@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import send_fruits
+from . import views
 
 urlpatterns = [
-    path('', send_fruits),
+    path("", views.fruitlist, name="fruitlist"),
+    path("info/", views.info, name="info"),
 ]

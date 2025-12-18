@@ -1,0 +1,38 @@
+{% extends 'fruit_app/base.html' %}
+{% block content %}
+
+<section class="grid">
+  <div>
+    <h2>Bestellt</h2>
+    <ul>
+      {% for fruit in fruits %}
+        {% if fruit.is_ordered %}
+          <li>
+            <strong>{{ fruit.name }}</strong><br>
+            {{ fruit.weight }}g – {{ fruit.color }}<br>
+<img class="fruit-img" src="{{ fruit.img }}" alt="{{ fruit.name }}">
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div>
+    <h2>Nicht bestellt</h2>
+    <ul>
+      {% for fruit in fruits %}
+        {% if not fruit.is_ordered %}
+          <li>
+            <strong>{{ fruit.name }}</strong><br>
+            {{ fruit.weight }}g – {{ fruit.color }}<br>
+<img class="fruit-img" src="{{ fruit.img }}" alt="{{ fruit.name }}">
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<p><a href="{% url 'info' %}">Mehr Infos</a></p>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Fruits Api</title>
+  <link rel="stylesheet" href="{% static 'fruit_app/css/style.css' %}">
+</head>
+<body>
+
+  {% include 'fruit_app/header.html' %}
+
+  <main>
+    {% block content %}{% endblock %}
+    {% block infos %}{% endblock %}
+  </main>
+
+</body>
+</html>

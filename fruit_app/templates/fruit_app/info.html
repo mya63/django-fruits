@@ -1,0 +1,16 @@
+{% extends 'fruit_app/base.html' %}
+
+{% block infos %}
+<h2>Infos</h2>
+<p>
+  Diese Mini Fruits Api zeigt eine Liste von Früchten.
+  Die Früchte werden nach <strong>bestellt</strong> und
+  <strong>nicht bestellt</strong> getrennt dargestellt.
+</p>
+
+<p>
+  Das Projekt wurde mit Django, Templates und Static Files umgesetzt.
+</p>
+
+<a href="{% url 'fruitlist' %}">Zurück zur Übersicht</a>
+{% endblock %}
