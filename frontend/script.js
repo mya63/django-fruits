@@ -1,10 +1,15 @@
-const state = { apiUrl: 'http://127.0.0.1:8000/fruits/', fruits: {} };
+const state = {
+  apiUrl: 'http://127.0.0.1:8000/fruits/',
+  fruits: [] // FIX: Liste statt Dictionary
+};
 
-function init() { loadFruits(); }
+function init() {
+  loadFruits();
+}
 
 async function loadFruits() {
   const res = await fetch(state.apiUrl);
-  state.fruits = await res.json();
+  state.fruits = await res.json(); // erwartet jetzt ein Array
   renderFruits();
 }
 
@@ -15,7 +20,9 @@ function renderFruits() {
 
 function getFruitItems() {
   let html = '';
-  for (const key in state.fruits) html += fruitItemTemplate(state.fruits[key]);
+  for (let i = 0; i < state.fruits.length; i++) { // FIX: normale for-Schleife
+    html += fruitItemTemplate(state.fruits[i]);
+  }
   return html;
 }
 
